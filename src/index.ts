@@ -6,6 +6,13 @@ import authRouter from "./application/routes/authentication/AuthRouter";
 
 
 /**
+ * HTTP logger
+ */
+const morgan = require('morgan');
+app.use(morgan('combined'))
+
+
+/**
  * Resources
  */
 app.use(getResourcePath('auth'), authRouter);
