@@ -5,7 +5,13 @@ import {config, getResourcePath} from './config/config';
 import authRouter from "./application/routes/AuthRouter";
 
 
+/**
+ * Resources
+ */
 app.use(getResourcePath('auth'), authRouter);
 
-console.log(getResourcePath('auth'));
+
+/**
+ * Startup
+ */
 app.listen(config.PORT, () => console.log(`Example app listening on port ${config.PORT}!`));
