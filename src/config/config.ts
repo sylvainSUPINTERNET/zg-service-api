@@ -9,6 +9,14 @@ export const config = {
     SCHEMA: 'http'
 }
 
+export const dbConfig = {
+    USER: 'root',
+    PASSWORD: 'root',
+    HOST: 'localhost',
+    DB_NAME: 'zg-map',
+    DIALECT: 'postgres'
+}
+
 /**
  * Create the route path based on the config prefix and version API
  * @param resourceName
