@@ -5,6 +5,7 @@ import {config, getResourcePath} from './config/config';
 import authRouter from "./application/routes/authentication/AuthRouter";
 import {sequelize} from "./domain/db/DbConnection";
 import {models} from "./domain";
+import mapRouter from "./application/routes/map/MapRouter";
 
 
 /**
@@ -18,7 +19,7 @@ app.use(morgan('combined'))
  * Resources
  */
 app.use(getResourcePath('auth'), authRouter);
-
+app.use(getResourcePath('map'), mapRouter);
 
 /**
  * Startup

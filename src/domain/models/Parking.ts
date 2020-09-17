@@ -12,3 +12,5 @@ export const Parkings = sequelize.define('Parkings', {
     // Other model options go here
 });
 
+
+
