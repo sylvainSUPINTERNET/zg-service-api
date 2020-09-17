@@ -56,7 +56,7 @@ export const mapService = {
 
 
     },
-    vecotrizePolyline: async (req, res, next) => {
+    vectorizePolyline: async (req, res, next) => {
         const {mapInfoJson} = req;
 
         if ( mapInfoJson ) {
