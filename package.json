@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mapbox/polyline": "^1.1.1",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/sequelize": "^4.28.9",
     "body-parser": "^1.19.0",

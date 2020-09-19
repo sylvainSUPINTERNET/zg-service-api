@@ -7,7 +7,12 @@ import * as fs from "fs";
 
 export const Authorization = {
     checkAuthorizaiton : (group:string) => {
+
         return (req:Request, res:Response, next: NextFunction) => {
+            // For test purpose ...
+            if (group === "TEST") {
+                return next();
+            }
             const { authorization } = req.headers;
 
             if ( !authorization || typeof authorization == "undefined") {

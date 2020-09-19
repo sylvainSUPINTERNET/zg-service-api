@@ -1,6 +1,7 @@
 'use strict';
 
 const fetch = require('node-fetch');
+const polyline = require('@mapbox/polyline');
 
 export const mapService = {
     getWayPoints: async (req, res, next) => {
@@ -8,15 +9,12 @@ export const mapService = {
 
         if ( positionA && positionB ) {
             try {
-                //TODO -> OSRM url
-                //https://router.project-osrm.org/route/v1/driving/48.828144,2.2646452;48.8283193,2.2644305?geometries=polyline&alternatives=false&steps=true&generate_hints=false
-
-                // TODO -> use OSRM project URL instead of static data obv
-                /*
-                const mapInfo = await fetch('https://gorest.co.in/public-api/todos');
+                const mapInfo = await fetch(`https://router.project-osrm.org/route/v1/driving/${positionA};${positionB}?geometries=polyline&alternatives=false&steps=true&generate_hints=false`);
                 req.mapInfoJson = await mapInfo.json();
-                 */
-
+                console.log(req.mapInfoJson);
+                // https://stackoverflow.com/questions/37345416/how-to-use-osrm-match-api-in-leaflet-to-draw-a-route
+                // e.g https://router.project-osrm.org/route/v1/driving/48.828144,2.2646452;48.8283193,2.2644305?geometries=polyline&alternatives=false&steps=true&generate_hints=false
+                /*
                 req.mapInfoJson = {
                     "waypoints": [
                         {
@@ -35,12 +33,12 @@ export const mapService = {
                         }
                     ]
                 };
+                 */
 
                 next();
 
             } catch (e) {
                 console.log(e);
-                console.log("fall");
                 res.status(400).json({
                     "message": e,
                     "code": 400
@@ -60,7 +58,13 @@ export const mapService = {
         const {mapInfoJson} = req;
 
         if ( mapInfoJson ) {
+            console.log("LLL")
+            console.log(mapInfoJson);
+            console.log(polyline.decode(mapInfoJson.routes[0].geometry))
+
+
             const { waypoints } = mapInfoJson;
+
             if ( waypoints ) {
 
                 const matrixLocations:Array<Array<number>> = waypoints.map(info => { return info['location']});
