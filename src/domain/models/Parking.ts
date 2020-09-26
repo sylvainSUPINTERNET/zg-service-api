@@ -1,7 +1,7 @@
 'use strict';
 
 import {sequelize} from "../db/DbConnection";
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 export const Parkings = sequelize.define('Parkings', {
     city: {
