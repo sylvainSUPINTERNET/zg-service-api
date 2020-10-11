@@ -6,9 +6,10 @@ import * as fs from "fs";
 
 
 export const Authorization = {
-    checkAuthorizaiton : (group:string) => {
+    checkAuthorization : (group:string) => {
 
         return (req:Request, res:Response, next: NextFunction) => {
+            console.log("COOKIES", req.cookies);
             // For test purpose ...
             if (group === "TEST") {
                 return next();

@@ -6,6 +6,6 @@ import {authService} from "../../../services/Authentication/authService";
 
 const authRouter = express.Router();
 
-authRouter.get('/login', Authorization.checkAuthorizaiton("User"), authService.login)
+authRouter.get('/login', Authorization.checkAuthorization("User"), authService.login)
 
 export default authRouter;
