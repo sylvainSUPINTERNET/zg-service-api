@@ -61,7 +61,7 @@ app.listen(config.PORT, async () => {
             await model.sync({ alter: true });
         });
 
-    
+
 
 
     } catch (e) {
