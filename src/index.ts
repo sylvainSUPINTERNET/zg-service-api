@@ -8,6 +8,7 @@ import {models} from "./domain";
 import mapRouter from "./application/routes/map/MapRouter";
 import {Categories} from "./domain/models/Category";
 import {Products} from "./domain/models/Product";
+import productRouter from "./application/routes/product/productRouter";
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
@@ -38,6 +39,8 @@ app.use(morgan('combined'));
  */
 app.use(getResourcePath('auth'), authRouter);
 app.use(getResourcePath('map'), mapRouter);
+console.log(getResourcePath('products'))
+app.use(getResourcePath('products'), productRouter);
 
 /**
  * Startup

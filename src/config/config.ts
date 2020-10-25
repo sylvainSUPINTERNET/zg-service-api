@@ -7,7 +7,7 @@ export const config = {
     VERSION: 'v1',
     API_PREFIX: `/api/v1`,
     SCHEMA: 'http'
-}
+};
 
 export const dbConfig = {
     USER: 'root',

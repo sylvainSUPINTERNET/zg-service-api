@@ -11,7 +11,7 @@ class DbConnection {
         this.Sequelize = new Sequelize(dbConfig.DB_NAME, dbConfig.USER, dbConfig.PASSWORD, {
             host: dbConfig.HOST,
             dialect: dbConfig.DIALECT,
-            logging: (...msg) => console.log(msg)
+            //logging: (...msg) => console.log(msg)
         })
 
     }

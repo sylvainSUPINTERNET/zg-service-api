@@ -35,11 +35,12 @@ export const Products = sequelize.define('Products', {
         type: DataTypes.INTEGER,
         defaultValue: 0
     },
+    /*
     // TODO one to many relation to get also severals views from the products
     geom: { //todo -> https://sequelize.org/master/class/lib/data-types.js~GEOMETRY.html for e.g how to save geometry data
         type: DataTypes.GEOMETRY,
         allowNull: true
-    }
+    }*/
 
 }, {
     // Other model options go here
