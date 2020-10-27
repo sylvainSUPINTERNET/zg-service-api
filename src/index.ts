@@ -59,6 +59,9 @@ app.listen(config.PORT, async () => {
                 as: 'products',
                 foreignKey: 'categoryId'
             });
+        Products.belongsTo(Categories, {foreignKey: 'categoryId'});
+        // https://sequelize.org/v3/docs/associations/
+        //https://medium.com/@eth3rnit3/sequelize-relationships-ultimate-guide-f26801a75554
 
         models.map( async model => {
             await model.sync({ alter: true });

@@ -6,7 +6,7 @@ export const productService = {
 
     getProductById: async (req,res,next) => {
         try {
-            const {id} = req.params;
+            const { id } = req.params;
             const product = await repositories.ProductRepository.getById(id);
             res.status(200).json({
                 "error": false,

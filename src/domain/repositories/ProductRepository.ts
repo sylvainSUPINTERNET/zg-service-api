@@ -13,11 +13,11 @@ class ProductRepository extends BaseRepository{
     }
 
      getAll(){
-        return this.model.findAll();
+        return this.model.findAll({offset: 0, limit:5});
     }
 
     getById( id: string ) {
-        return this.model.findByPk(id)
+        return this.model.findByPk(id, {include: ["Category"] })
     }
 
 }
