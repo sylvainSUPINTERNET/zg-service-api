@@ -5,7 +5,7 @@ import {Sequelize} from "sequelize";
 import {Products} from "./Product";
 const { DataTypes } = require('sequelize');
 
-export const Categories = sequelize.define('Categories', {
+export const Categories = sequelize.define('categories', {
     name: {
         type: DataTypes.STRING,
         allowNull: false

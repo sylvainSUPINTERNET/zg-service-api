@@ -9,6 +9,7 @@ import mapRouter from "./application/routes/map/MapRouter";
 import {Categories} from "./domain/models/Category";
 import {Products} from "./domain/models/Product";
 import productRouter from "./application/routes/product/productRouter";
+import staticCategories from "./config/staticData/categories";
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
@@ -63,10 +64,22 @@ app.listen(config.PORT, async () => {
         // https://sequelize.org/v3/docs/associations/
         //https://medium.com/@eth3rnit3/sequelize-relationships-ultimate-guide-f26801a75554
 
+
         models.map( async model => {
             await model.sync({ alter: true });
         });
 
+        // bulkCreate with options not working for pgsql (2020)
+        for ( let cat of staticCategories ) {
+            await Categories.findOrCreate({
+                where: {
+                    name: cat.name
+                }, defaults: {
+                    name: cat.name,
+                    description: cat.description
+                }
+            });
+        }
 
 
 
