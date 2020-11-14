@@ -6,6 +6,7 @@ import {Products} from "./models/Product";
 import {Categories} from "./models/Category";
 
 import {ProductRepo as ProductRepository} from "./repositories/ProductRepository";
+import {CategoryRepo} from "./repositories/CategoryRepository";
 
 
 export const models = [
@@ -15,5 +16,6 @@ export const models = [
 ];
 
 export const repositories = {
-    ProductRepository
+    ProductRepository,
+    CategoryRepo
 };

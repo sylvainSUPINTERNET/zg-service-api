@@ -15,7 +15,7 @@ export const Products = sequelize.define('products', {
         allowNull: true
     },
     price: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.DOUBLE,
         allowNull: false
     },
     currency: {
