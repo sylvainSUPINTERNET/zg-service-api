@@ -48,6 +48,8 @@ app.use(getResourcePath('categories'), categoryRouter);
  * Startup
  */
 app.listen(config.PORT, async () => {
+
+
     try {
         await sequelize.authenticate();
         console.log('database connection has been established successfully.');
@@ -91,7 +93,7 @@ app.listen(config.PORT, async () => {
                 if ( products.length === 0) {
                     const maxProducts = 20;
                     for ( let i = 0; i < maxProducts; i++) {
-                        const { id } = await Categories.findByPk(7);
+                        const { id } = await Categories.findByPk(1);
 
                         const newProduct = Products.create({
                             "name":`Product${i}`,
@@ -104,12 +106,6 @@ app.listen(config.PORT, async () => {
                 }
             }
         });
-
-
-
-
-
-
     } catch (e) {
         console.log("ERROR DB : ", e);
     }
